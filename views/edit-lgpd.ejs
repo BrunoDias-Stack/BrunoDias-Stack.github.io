@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Dashboard Template for Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/lgpd">LGPD</a>
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#">Sign out</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="jumbotron">
+        <form action="/lgpd/update/<%= lgpd.id %> " method="POST">
+            <div class="col">
+                <label for="id"><strong>#<%= lgpd.id %></strong></label>
+              </div>
+            <div class="col-md-8">
+                <label for="Politica"><strong>Política</strong></label>
+                <input type="text" class="form-control" value="<%= lgpd.Politica %>" name="Politica" id="Politica" placeholder="Tipo Politica" aria-label="Tipo Politica">
+              </div><br>
+              <div class="col-md-8">
+                <label for="obs"><strong>Data Atualização</strong></label>
+                <input type="text" class="form-control" value="<%= lgpd.DataAt %>" name="Data" id="Data" placeholder="Data Atualização" aria-label="Data Atualização">
+              </div><br>
+            <div class="col-md-8">
+                <label for="responsavel"><strong>Responsável</strong></label>
+                <input type="text" class="form-control" value="<%= lgpd.Responsável %>" name="responsavel" id="responsavel" placeholder="Informe o Responsável" aria-label="Informe o Responsável">
+              </div><br>
+              <div class="col-md-8">
+                <label for="caminho"><strong>Caminho</strong></label>
+                <input type="text" class="form-control" value="<%= lgpd.Caminho %>" name="caminho" id="caminho" placeholder="Caminho do Arquivo" aria-label="Caminho do Arquivo">
+              </div><br>
+              <div class="col-md-8">
+              <label for="Status"><strong>Atualizado?</strong></label>
+                <input type="text" class="form-control" value="<%= lgpd.Status %>" name="status" id="status" placeholder="status" aria-label="status">
+            </div><br>
+              <div class="col-md-4 my-1">
+                <label for="mensagem"><strong>Observação</strong></label>
+                <textarea type="mensagem" class="form-control" rows="5" name="obs" id="obs" placeholder="Insira aqui a observação" aria-label="Insira aqui a observação"><%= lgpd.Obs %></textarea>
+
+              <% if (typeof updated != "undefined") { %>
+                <div class="form-group col-md-12 alert alert-success">
+                  Campos modificados com sucesso
+                </div>
+               <% } %>
+               <button type="submit" class="btn btn-primary my-2">Editar</button>
+            </div><br>
+              </form>
+      </div>
+
+</body>
+</html>
