@@ -2,8 +2,11 @@ const lgpds = require("../data/lgpd");
 const saveData = require("../utils/saveData");
 
 module.exports = {
-    index(req, res, next){
-      res.render('lgpd', {lgpds});
+    async index(req, res, next){
+      let id = req.params.id
+
+
+      res.render('lgpd', {lgpds, id});
     },
     
   async edit(req, res, next){
@@ -15,6 +18,7 @@ module.exports = {
     res.render('edit-lgpd', {lgpd});
 
   },
+
   save(req, res, next){
     /* criando um id sequencial, obtendo a
     quantidade de elementos no array recipes e somando + 1 */

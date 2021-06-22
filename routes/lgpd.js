@@ -4,6 +4,7 @@ var router = express.Router();
 const lgpdController = require("../controllers/lgpdController")
 
 router.get('/', lgpdController.index)
+router.get('/:id?', lgpdController.index)
 
 /* POST salvar receitas */
 router.post('/save', lgpdController.save);
